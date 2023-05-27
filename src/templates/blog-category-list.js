@@ -1,23 +1,16 @@
 import React from "react";
-
-
-
 import SEO from "../components/seo";
-
-
 import BlogList from "../sections/Blog/Blog-list";
-
-
-
 import { graphql } from "gatsby";
+
 export const query = graphql`
   query BlogsByCategory($category: String!) {
     allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
       filter: {
         fields: { collection: { eq: "blog" } }
         frontmatter: { category: { eq: $category }, published: { eq: true } }
       }
+      sort: { fields: [frontmatter___date], order: DESC }
     ) {
       totalCount
       nodes {
@@ -52,17 +45,8 @@ export const query = graphql`
 `;
 
 const BlogListPage = ({ pageContext, data }) => {
-
-
   return (
-
-    <>
-
-
-      <BlogList data={data} pageContext={pageContext} />
-
-    </>
-
+    <BlogList data={data} pageContext={pageContext} type="sidebar" />
   );
 };
 export default BlogListPage;

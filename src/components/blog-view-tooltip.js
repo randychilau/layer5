@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Row } from "../reusecore/Layout";
 import { TiThList } from "@react-icons/all-files/ti/TiThList";
 import { BsGrid3X3GapFill } from "@react-icons/all-files/bs/BsGrid3X3GapFill";
 import ReactTooltip from "react-tooltip";
 import styled from "styled-components";
+import useHasMounted from "../utils/useHasMounted";
 
 export const ToolTipWrapper = styled.div`
     @media screen and (max-width: 576px) {
@@ -37,17 +38,9 @@ export const ToolTipWrapper = styled.div`
     }
 `;
 
-const BlogViewToolTip = ({ isListView, setListView, setGridView }) => {
+const BlogViewToolTip = ({ isListView, setIsListView }) => {
 
-  const NoSsr = ({ children }) => {
-    const [isMounted, setMount] = useState(false);
-
-    useEffect(() => {
-      setMount(true);
-    }, []);
-
-    return <>{isMounted ? children : null}</>;
-  };
+  const hasMounted = useHasMounted();
 
   return (
     <ToolTipWrapper>
@@ -55,12 +48,12 @@ const BlogViewToolTip = ({ isListView, setListView, setGridView }) => {
         <a
           data-tip="Grid View"
           data-for="grid-view"
-          onClick={setGridView}
+          onClick={() => setIsListView(false)}
           className={`${!isListView && "active"}`}
         >
           <BsGrid3X3GapFill size={22} />
         </a>
-        <NoSsr>
+        {hasMounted &&
           <ReactTooltip
             id="grid-view"
             border
@@ -69,16 +62,16 @@ const BlogViewToolTip = ({ isListView, setListView, setGridView }) => {
             place="top"
             effect="solid"
           />
-        </NoSsr>
+        }
         <a
           data-tip="List View"
           data-for="list-view"
-          onClick={setListView}
+          onClick={() => setIsListView(true)}
           className={`${isListView && "active"}`}
         >
           <TiThList size={22} />
         </a>
-        <NoSsr>
+        {hasMounted &&
           <ReactTooltip
             id="list-view"
             className="list-view"
@@ -87,7 +80,7 @@ const BlogViewToolTip = ({ isListView, setListView, setGridView }) => {
             type="dark"
             effect="solid"
           />
-        </NoSsr>
+        }
       </Row>
     </ToolTipWrapper>
 

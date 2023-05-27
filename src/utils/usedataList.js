@@ -1,5 +1,6 @@
 import * as JsSearch from "js-search";
 import { useState, useEffect } from "react";
+
 const useDataList = (
   data,
   setSearchQuery,
@@ -12,13 +13,10 @@ const useDataList = (
   const [searchResults, setSearchResults] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const queryResults = searchQuery ? searchResults : dataList;
-  useEffect(() => {
-    rebuildIndex();
-  }, [dataList]);
 
   useEffect(() => {
     rebuildIndex();
-  }, []);
+  }, [dataList]);
 
   const rebuildIndex = () => {
     const dataToSearch = new JsSearch.Search(paramSearch);
@@ -32,13 +30,17 @@ const useDataList = (
     setIsLoading(false);
   };
 
-  const searchData = (e) => {
-    const queryResult = search.search(e.target.value);
-    setSearchQuery(e.target.value.trim());
-    setSearchResults(queryResult);
+  const searchData = (inputValue) => {
+      const queryResult = search.search(inputValue);  
+      let previousSearch = localStorage.getItem("searchQuery"); 
+      if (inputValue !== previousSearch) {
+      setSearchQuery(inputValue.trim());
+      localStorage.setItem("searchQuery", inputValue);
+      }
+      setSearchResults(queryResult);
   };
 
-  return { queryResults, searchData, setDataList,dataList };
+  return { queryResults, searchData, setDataList, dataList };
 };
 
 export default useDataList;

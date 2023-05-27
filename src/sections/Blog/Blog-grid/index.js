@@ -8,27 +8,20 @@ import Card from "../../../components/Card";
 import BlogViewToolTip from "../../../components/blog-view-tooltip";
 import SearchBox from "../../../reusecore/Search";
 import Pagination from "../../Resources/Resources-grid/paginate";
-import useDataList from "../../../utils/usedataList";
 
 const BlogGrid = ({
+  queryResults,
+  searchData,
+  searchQuery,
   isListView,
-  setListView,
-  setGridView,
+  setIsListView,
   pageContext,
-  data,
+  location
 }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(10);
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const [searchQuery, setSearchQuery] = useState("");
-  const { queryResults, searchData } = useDataList(
-    data.allMdx.nodes,
-    setSearchQuery,
-    searchQuery,
-    ["frontmatter", "title"],
-    "id"
-  );
   const searchedPosts = queryResults.slice(indexOfFirstPost, indexOfLastPost);
   // Change page
   const paginate = (pageNumber) => {
@@ -39,6 +32,7 @@ const BlogGrid = ({
       behavior: "smooth",
     });
   };
+
   return (
     <BlogPageWrapper>
       <PageHeader
@@ -54,10 +48,15 @@ const BlogGrid = ({
               <div className="tooltip-search">
                 <BlogViewToolTip
                   isListView={isListView}
-                  setListView={setListView}
-                  setGridView={setGridView}
+                  setIsListView={setIsListView}
                 />
-                <SearchBox searchQuery={searchQuery} searchData={searchData} paginate={paginate} currentPage={currentPage} />
+                <SearchBox
+                  searchQuery={searchQuery}
+                  searchData={searchData}
+                  paginate={paginate}
+                  currentPage={currentPage}
+                  location={location}
+                />
               </div>
               <div className="blog-grid-wrapper">
                 <Row>

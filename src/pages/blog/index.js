@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import SEO from "../../components/seo";
-import BlogGrid from "../../sections/Blog/Blog-grid";
 import { graphql } from "gatsby";
 import loadable from "@loadable/component";
-const BlogList = loadable(() => import ("../../sections/Blog/Blog-list"));
+import BlogList from "../../sections/Blog/Blog-list";
+import BlogGrid from "../../sections/Blog/Blog-grid";
+import useDataList from "../../utils/usedataList";
 
 export const query = graphql`
   query allBlogs {
@@ -46,31 +47,39 @@ export const query = graphql`
 
 const Blog = (props) => {
   const [isListView, setIsListView] = useState(false);
-  const setListView = () => {
-    setIsListView(true);
-  };
-  const setGridView = () => {
-    setIsListView(false);
-  };
+  const [searchQuery, setSearchQuery] = useState(false);
+  const { queryResults, searchData } = useDataList(
+    props.data.allMdx.nodes,
+    setSearchQuery,
+    searchQuery,
+    ["frontmatter", "title"],
+    "id"
+  );
+
   useEffect(() => {
-    if (props.location.state) {
-      if (props.location.state.isListView) setListView();
+    let previousSearch = localStorage.getItem("searchQuery");
+    if (previousSearch){
+      setSearchQuery(previousSearch);
     }
   }, []);
-  let BlogView = (props) => {
-    if (isListView) return <BlogList {...props} />;
-    return <BlogGrid {...props} />;
-  };
+
+  let BlogView = useMemo(() => (props) => isListView
+    ? <BlogList {...props} />
+    : <BlogGrid {...props} />
+  , [isListView]);
+
   return (
     <>
       <BlogView
-        isListView={isListView}
-        setListView={setListView}
-        setGridView={setGridView}
+        queryResults={queryResults}
+        searchData={searchData}
+        searchQuery={searchQuery}
+        isListView= {isListView}
+        setIsListView={setIsListView}
         pageContext={props.pageContext}
         data={props.data}
+        location={props.location.pathname}
       />
-
     </>
   );
 };
