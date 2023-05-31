@@ -13,16 +13,19 @@ import ScrollToTopBtn from "./Scrolltotop-button";
 import Navigation from "../sections/General/Navigation";
 import Footer from "../sections/General/Footer";
 import { GlobalStyle } from "../sections/app.style";
+import { FooterProvider } from "../contexts/FooterContext";
 
 const Layout = ({ children }) => {
 
   return (
     <>
-      <GlobalStyle />
-      <Navigation/>
-      {children}
-      <ScrollToTopBtn />
-      <Footer />
+      <FooterProvider>
+        <GlobalStyle />
+        <Navigation/>
+        {children}
+        <ScrollToTopBtn />
+        <Footer />
+      </FooterProvider>
     </>
   );
 };
