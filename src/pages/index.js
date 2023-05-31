@@ -1,22 +1,28 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 
 import SEO from "../components/seo";
 import Partners from "../sections/Home/Partners-home";
 import Integrations from "../sections/Home/Projects-home";
 import Banner from "../sections/Home/Banner";
 import loadable from "@loadable/component";
+import { FooterSetContext } from "../contexts/FooterContext";
+
 const CloudNativeManagement = loadable(() => import("../sections/Home/CloudNativeManagement"));
 const SubscribeSection = loadable(() => import("../sections/subscribe/subscribe"));
 const ServiceMeshFocussed = loadable(() => import("../sections/Home/Service-mesh-focussed"));
-
-
 const SoSpecial = loadable(() => import("../sections/Home/So-Special-Section"));
 const MesheryIntegration = loadable(() => import("../sections/Meshery/Meshery-integrations"));
 
 // import { IoMdClose } from "@react-icons/all-files/io/IoMdClose";
 
+const IndexPage = ({ location }) => {
 
-const IndexPage = () => {
+  const setFooterDetails = useContext(FooterSetContext);
+
+  useEffect(() => {
+    setFooterDetails({ pageUrl: location.pathname });
+  }, []);
+
   return (
     <>
       <Banner />
