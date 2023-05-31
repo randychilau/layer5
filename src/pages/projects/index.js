@@ -1,10 +1,8 @@
 import React, { useContext, useEffect } from "react";
 import { graphql } from "gatsby";
-
 import SEO from "../../components/seo";
 import ProjectPage from "../../sections/Projects/Project-grid";
 import { FooterSetContext } from "../../contexts/FooterContext";
-
 
 export const query = graphql`query allProjects {
   allMdx(
@@ -32,7 +30,6 @@ export const query = graphql`query allProjects {
 const ProjectGridPage = ({ data, location }) => {
 
   const setFooterDetails = useContext(FooterSetContext);
-
   useEffect(() => {
     setFooterDetails({ pageUrl: location.pathname });
   }, []);

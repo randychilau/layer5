@@ -18,7 +18,6 @@ const MesheryIntegration = loadable(() => import("../sections/Meshery/Meshery-in
 const IndexPage = ({ location }) => {
 
   const setFooterDetails = useContext(FooterSetContext);
-
   useEffect(() => {
     setFooterDetails({ pageUrl: location.pathname });
   }, []);
