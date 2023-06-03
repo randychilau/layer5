@@ -238,6 +238,7 @@ const Footer = () => {
                     className="inputrow subscribe-email"
                     type="email"
                     placeholder="Email Address"
+                    autoComplete="off"
                     name="EMAIL"
                     id="mce-EMAIL-2"
                     onInvalid={e => e.target.setCustomValidity("Please fill-in this field")}
