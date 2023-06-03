@@ -4,11 +4,14 @@ import { Container, Row, Col } from "../../../reusecore/Layout";
 import SectionTitle from "../../../reusecore/SectionTitle";
 import Button from "../../../reusecore/Button";
 import AboutSectionWrapper from "./about.style";
-import Statement from "../Layer5-statement";
-
+import loadable from "@loadable/component";
+// import Statement from "../Layer5-statement";
+const Statement = loadable(() => import("../Layer5-statement"));
+// import WhoWeAre from "../WhoWeAre";
+const WhoWeAre = loadable(() => import("../WhoWeAre"));
 import collabMap from "./images/layer5-collaboration-map.svg";
 import location from "./images/location.svg";
-import WhoWeAre from "../WhoWeAre";
+
 import FiveIcon from "../../../assets/images/layer5/5 icon/svg/light/5-light-bg.svg";
 import { ReactComponent as CNCFstackedlogo } from "./images/cncf-stacked-color.svg";
 import { Link } from "gatsby";

@@ -3,13 +3,15 @@ import React from "react";
 import SEO from "../../components/seo";
 
 import AboutSection from "../../sections/Company/About";
-import StewardsOfIndustry from "../../sections/Company/Stewards-of-industry";
+// import StewardsOfIndustry from "../../sections/Company/Stewards-of-industry";
+import loadable from "@loadable/component";
+const StewardsOfIndustry = loadable(() => import("../../sections/Company/Stewards-of-industry"));
+
 const About = () => {
   return (
     <>
       <AboutSection  />
       <StewardsOfIndustry />
-
     </>
   );
 };
