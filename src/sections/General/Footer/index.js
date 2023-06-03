@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React from "react";
 import { Link } from "gatsby";
 import { Container, Row, Col } from "../../../reusecore/Layout";
 import logo from "../../../assets/images/layer5/layer5-only/svg/layer5-light-bg.svg";
@@ -6,15 +6,13 @@ import SocialLinksColor from "../../../components/SocialLinks-Color";
 import Button from "../../../reusecore/Button";
 import FooterWrapper from "./footer.style";
 import bubblesElement from "./images/bubbles-element.svg";
-import { FooterContext } from "../../../contexts/FooterContext";
 
+const Footer = ({ path }) => {
 
-const Footer = () => {
   var currentYear = new Date().getFullYear();
-  const { pageUrl } = useContext(FooterContext);
 
-  useEffect(() => {
-  },[pageUrl]);
+  const editUrl = `https://github.com/layer5io/layer5/blob/master/src/pages${path === "/" ? "/index" : path}.js`;
+
 
   return (
     <FooterWrapper>
@@ -292,7 +290,7 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                pageUrl: {pageUrl || ""}
+                pageUrl: {editUrl}
               </li>
             </ul>
           </div>
