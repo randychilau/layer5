@@ -11,9 +11,6 @@ const { paginate } = require("gatsby-awesome-pagination");
 const { createFilePath } = require("gatsby-source-filesystem");
 const config = require("./gatsby-config");
 
-console.log("process.env.CI", typeof process.env.CI);
-console.log("process.env.CI", process.env.CI);
-
 if (process.env.CI === "true") {
   // All process.env.CI conditionals in this file are in place for GitHub Pages, if webhost changes in the future, code may need to be modified or removed.
   //Replacing '/' would result in empty string which is invalid
@@ -72,7 +69,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions;
 
   const envCreatePage = (props) => {
-    if (process.env.CI){
+    if (process.env.CI === "true"){
       const { path, ...rest } = props;
 
       createRedirect({ fromPath: `/${path}/`, toPath: `/${path}`, redirectInBrowser: true, isPermanent: true });
