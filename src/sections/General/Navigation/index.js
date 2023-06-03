@@ -206,7 +206,7 @@ const Navigation = () => {
       <Container className="nav-container">
         <div className="navbar-wrap">
           <Link to="/" className="logo">
-            <Logo />
+            <Logo alt="Layer5 Logo"/>
           </Link>
           <nav className="nav">
             {expand ?
