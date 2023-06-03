@@ -11,7 +11,10 @@ const { paginate } = require("gatsby-awesome-pagination");
 const { createFilePath } = require("gatsby-source-filesystem");
 const config = require("./gatsby-config");
 
-if (process.env.CI) {
+console.log("process.env.CI", typeof process.env.CI);
+console.log("process.env.CI", process.env.CI);
+
+if (process.env.CI === "true") {
   // All process.env.CI conditionals in this file are in place for GitHub Pages, if webhost changes in the future, code may need to be modified or removed.
   //Replacing '/' would result in empty string which is invalid
   const replacePath = (url) => (url === "/" || url.includes("/404")) ? url : `${url}.html`;
