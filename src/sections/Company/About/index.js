@@ -11,7 +11,6 @@ const Statement = loadable(() => import("../Layer5-statement"));
 const WhoWeAre = loadable(() => import("../WhoWeAre"));
 import collabMap from "./images/layer5-collaboration-map.svg";
 import location from "./images/location.svg";
-
 import FiveIcon from "../../../assets/images/layer5/5 icon/svg/light/5-light-bg.svg";
 import { ReactComponent as CNCFstackedlogo } from "./images/cncf-stacked-color.svg";
 import { Link } from "gatsby";
@@ -29,7 +28,7 @@ const About = () => {
             <Row Vcenter={true} className="row-img-cont-1">
               <Col xs={12} sm={6}>
                 <div className="head-images">
-                  <img src={FiveIcon} alt="About Layer5" />
+                  <StaticImage loading="eager" src={FiveIcon} alt="About Layer5" />
                 </div>
               </Col>
               <Col xs={12} sm={6}>
