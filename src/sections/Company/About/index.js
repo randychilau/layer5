@@ -10,7 +10,7 @@ const Statement = loadable(() => import("../Layer5-statement"));
 // import WhoWeAre from "../WhoWeAre";
 const WhoWeAre = loadable(() => import("../WhoWeAre"));
 import collabMap from "./images/layer5-collaboration-map.svg";
-import location from "./images/location.svg";
+// import location from "./images/location.svg";
 import { ReactComponent as FiveIcon }  from "../../../assets/images/layer5/5 icon/svg/light/5-light-bg.svg";
 import { ReactComponent as CNCFstackedlogo } from "./images/cncf-stacked-color.svg";
 import { Link } from "gatsby";
@@ -121,7 +121,7 @@ const About = () => {
                 <Col xs={12} sm={6}>
                   <div className="footer-section">
                     <a href="https://goo.gl/maps/3oeuqrsMtHPQSTmQ8">
-                      <img src={location} className="location" alt="Layer5 locations" loading="lazy"/>
+                      <StaticImage src="./images/location.svg" className="location" alt="Layer5 locations" loading="lazy"/>
                     </a>
                     <div className="loc">
                       <p className="country">USA</p>
@@ -140,7 +140,7 @@ const About = () => {
                 <Col xs={12} sm={6}>
                   <div className="footer-section">
                     <a href="https://goo.gl/maps/1nF7vNmVq5fm2GLS6">
-                      <img src={location} className="location" alt="Layer5 locations" loading="lazy"/>
+                      <StaticImage src="./images/location.svg" className="location" alt="Layer5 locations" loading="lazy"/>
                     </a>
                     <div className="loc">
                       <p className="country">Scotland</p>
