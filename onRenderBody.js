@@ -36,7 +36,7 @@ const MagicScriptTag = (props) => {
           }
           const parsedTheme = JSON.parse('${JSON.stringify(props.theme)}')
           const theme = parsedTheme[colorMode]
-          iterate(theme)
+          iterate(theme || {})
           root.style.setProperty('--initial-color-mode', colorMode);  
        })()
   `;
