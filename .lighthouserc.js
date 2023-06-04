@@ -2,7 +2,7 @@ module.exports = {
     "ci": {
       "collect": {
         "settings": {
-          formfactor: "desktop"
+          "preset": "desktop"
         },
         "staticDistDir": "./public",
         "url" : [
