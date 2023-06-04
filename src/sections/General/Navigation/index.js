@@ -205,7 +205,7 @@ const Navigation = () => {
     <NavigationWrap className={`nav-block ${scroll ? "scrolled" : ""}`} ref={navWrapRef}>
       <Container className="nav-container">
         <div className="navbar-wrap">
-          <Link to="/" className="logo" alt="Layer5 Logo - click to go to the homepage">
+          <Link to="/" className="logo" aria-label="Layer5 Logo - click to go to the homepage">
             <Logo alt="Layer5 Logo"/>
           </Link>
           <nav className="nav">
