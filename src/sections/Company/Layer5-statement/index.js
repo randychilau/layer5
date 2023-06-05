@@ -2,11 +2,11 @@ import React from "react";
 import { Row, Col } from "../../../reusecore/Layout";
 import SectionTitle from "../../../reusecore/SectionTitle";
 import Button from "../../../reusecore/Button";
-import svgBackground from "../../../assets/images/homePage-images/background.svg";
+// import svgBackground from "../../../assets/images/homePage-images/background.svg";
 import BannerSectionWrapper from "./statement.style";
 import { StaticImage } from "gatsby-plugin-image";
 
-const imgHero = "../../../assets/images/homePage-images/Lee-Calcote-Cloud-Native-Rejekts.jpg";
+// const imgHero = "../../../assets/images/homePage-images/Lee-Calcote-Cloud-Native-Rejekts.jpg";
 // const imgHero = "./images/layer5-projects.png";
 
 
@@ -19,7 +19,7 @@ const BannerDefault = () => {
             <div className="left">
               <div className="left-child">
                 <div className="svg-background">
-                  <img src={svgBackground} alt="background" loading="lazy"/>
+                  <StaticImage src="../../../assets/images/homePage-images/background.svg" alt="background" loading="lazy"/>
                 </div>
                 <SectionTitle
                   className="section-title"
@@ -46,7 +46,7 @@ const BannerDefault = () => {
             </div>
           </Col>
           <Col sm={12} md={6} lg={6} className="right-col">
-            <StaticImage loading="lazy" className="hero" src={imgHero} alt="hero image" />
+            <StaticImage loading="lazy" className="hero" src="../../../assets/images/homePage-images/Lee-Calcote-Cloud-Native-Rejekts.jpg" alt="hero image" />
           </Col>
         </Row>
       </div>
