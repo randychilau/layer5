@@ -7,12 +7,28 @@ import Button from "../../../reusecore/Button";
 import FooterWrapper from "./footer.style";
 import bubblesElement from "./images/bubbles-element.svg";
 
-const Footer = ({ path }) => {
+const Footer = ({ pathname }) => {
 
   var currentYear = new Date().getFullYear();
+  const getRestOfUrl = (pathname) => {
+    //remove ".html" that results in live production build
+    if (pathname.endsWith(".html")) {
+      pathname = pathname.replace(".html", "");
+    }
+    // series of tests that returns a string, can add more tests in the future
+    const test = {
+      mdx: function(path){
+        return ["/blog/", "/careers/", "/events/", "/integrations/", "/landscape/", "/members/", "/news/", "/programs", "/projects/", "/resources/", "/service-mesh-books/", "/service-mesh-labs/", "/service-mesh-workshops/"].some((check) => path.startsWith(check)) && `src/collections${path}`;
+      },
+      learningPath: function(path) {
+        return path.startsWith("/learn/learning-paths/") && `content-learn${pathname.replace("learn/learning-paths/", "")}`;
+      }
+    };
+    //returns first true value, otherwise a string
+    return test.mdx(pathname) || test.learningPath(pathname) || `pages${pathname}`;
+  };
 
-  const editUrl = `https://github.com/layer5io/layer5/blob/master/src/pages${path === "/" ? "/index" : path}.js`;
-
+  const editUrl = `https://github.com/layer5io/layer5/blob/master/${getRestOfUrl(pathname)}.js`;
 
   return (
     <FooterWrapper>
