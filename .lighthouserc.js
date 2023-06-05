@@ -1,9 +1,9 @@
 module.exports = {
     "ci": {
       "collect": {
-        "settings": {
-          "preset": "desktop"
-        },
+        // "settings": {
+        //   "preset": "desktop"
+        // },
         "staticDistDir": "./public",
         "url" : [
                   // "http://localhost/404.html",
@@ -26,7 +26,7 @@ module.exports = {
               ],
       },
       "assert": {
-        "preset": "lighthouse:no-pwa",
+        // "preset": "lighthouse:no-pwa",
         "assertions": {
           "csp-xss": "off",
           "aria-hidden-focus": "off",
