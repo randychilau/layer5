@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import imgHero from "../../../assets/images/homePage-images/Lee-Calcote-Cloud-Native-Rejekts.jpg";
+// import imgHero from "../../../assets/images/homePage-images/Lee-Calcote-Cloud-Native-Rejekts.jpg";
 
 
 const BannerSectionWrapper = styled.section`
@@ -60,7 +60,6 @@ const BannerSectionWrapper = styled.section`
         color: rgba(255, 255, 255, 0.7);
     }
     .hero {
-        background: url(${imgHero});
         right: 0px;
         height: 39.5rem;
         vertical-align: middle
