@@ -16,7 +16,7 @@ import { GlobalStyle } from "../sections/app.style";
 
 const Layout = ({ children }) => {
 
-  const { props: { path } } = children;
+  const { props: { location: { pathname } } } = children;
 
   return (
     <>
@@ -24,7 +24,7 @@ const Layout = ({ children }) => {
       <Navigation/>
       {children}
       <ScrollToTopBtn />
-      <Footer path={path}/>
+      <Footer pathname={pathname}/>
     </>
   );
 };
