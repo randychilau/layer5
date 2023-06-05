@@ -35,8 +35,7 @@ module.exports = {
           "categories:best-practices": ["warn", {"minScore": .90}],
           "categories:seo": ["warn", {"minScore": .90}],
           }
-        }
-      },
+        },
       "upload": {
         "target": "temporary-public-storage",
       },
