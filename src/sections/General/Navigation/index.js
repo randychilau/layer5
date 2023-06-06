@@ -9,7 +9,7 @@ import { useStyledDarkMode } from "../../../theme/app/useStyledDarkMode";
 
 // import smp_dark_text from "../../../assets/images/service-mesh-performance/stacked/smp-dark-text.svg";
 // import smp_light_text from "../../../assets/images/service-mesh-performance/stacked/smp-light-text.svg";
-import meshmap_dark from "../../..//assets/images/meshmap/icon-only/meshmap-icon.svg";
+import meshmap_dark from "../../../assets/images/meshmap/icon-only/meshmap-icon.svg";
 import meshery from "../../../assets/images/meshery/icon-only/meshery-logo-light.svg";
 import Data from "./utility/menu-items.js";
 import { ReactComponent as Logo } from "../../../assets/images/app/layer5-colorMode.svg";
