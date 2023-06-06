@@ -7,10 +7,10 @@ import SectionTitle from "../../../reusecore/SectionTitle";
 import AboutSectionWrapper from "./about.style";
 
 
-import FiveIcon from "../../../assets/images/layer5/5 icon/svg/light/5-light-bg.svg";
+
 import collabMap from "./images/layer5-collaboration-map.svg";
 import location from "./images/location.svg";
-
+const FiveIcon = loadable.lib(() => import("../../../assets/images/layer5/5 icon/svg/light/5-light-bg.svg"));
 const CNCFstackedlogo = loadable.lib(() => import("./images/cncf-stacked-color.svg"));
 // import { ReactComponent as CNCFstackedlogo } from "./images/cncf-stacked-color.svg";
 // import Statement from "../Layer5-statement";
@@ -32,7 +32,7 @@ const About = () => {
             <Row Vcenter={true} className="row-img-cont-1">
               <Col xs={12} sm={6}>
                 <div className="head-images">
-                  <img src={FiveIcon} alt="About Layer5"/>
+                  <FiveIcon>{({ ReactComponent }) => <ReactComponent alt="About Layer5"/>}</FiveIcon>
                 </div>
               </Col>
               <Col xs={12} sm={6}>
