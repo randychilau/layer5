@@ -42,7 +42,7 @@ const NavigationWrap = styled.header`
       border: 1px solid transparent;
       border-radius: .25rem;
       // color: ${props => props.theme.secondaryColor};
-      color: #007d6f;
+      color: ${props => props.theme.whiteToGreen007D6F};
       background: ${(props) => props.theme.grey121212ToWhite};
       transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
         &:hover{
