@@ -38,6 +38,8 @@ const AboutSectionWrapper = styled.section`
   p.address {
       font-size: 1.05rem;
       line-height: 1.25rem;
+      color: ${props => props.theme.text};
+      transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
   .about-thumb {
     width: 100%;
@@ -47,10 +49,13 @@ const AboutSectionWrapper = styled.section`
   .about-text.text-one {
     font-weight: 300;
     margin-bottom: 28px;
+    color: ${props => props.theme.text};
+    transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
 
   .about-text.text-two {
-    color: ${props => props.theme.sideTextColor};
+    color: ${props => props.theme.text};
+    transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
     font-weight: 400;
     margin-bottom: 28px;
   }
@@ -69,16 +74,20 @@ const AboutSectionWrapper = styled.section`
       }
     }
   }
-  .colab {
+  .collab {
     font-size: 20px;
     font-weight: 500;
     line-height: normal;
+    color: ${props => props.theme.text};
+    transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
   .country {
     font-weight: 600;
     font-size: 1.5rem;
     line-height: normal;
     margin: 0;
+    color: ${props => props.theme.text};
+    transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
   .aboutus-title {
     
@@ -96,7 +105,7 @@ const AboutSectionWrapper = styled.section`
       margin-top: 4rem;
       margin-bottom: 0rem;
       font-family:"Qanelas Soft";
-      color: ${props => props.theme.whiteToBlack}; 
+      color: ${props => props.theme.text}; 
       transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); 
     }
     h4{
