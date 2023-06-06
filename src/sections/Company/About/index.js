@@ -1,23 +1,27 @@
 import React from "react";
+import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
+import loadable from "@loadable/component";
 import { Container, Row, Col } from "../../../reusecore/Layout";
 import SectionTitle from "../../../reusecore/SectionTitle";
-import Button from "../../../reusecore/Button";
 import AboutSectionWrapper from "./about.style";
-import loadable from "@loadable/component";
+
+
+import FiveIcon from "../../../assets/images/layer5/5 icon/svg/light/5-light-bg.svg";
+import collabMap from "./images/layer5-collaboration-map.svg";
+import location from "./images/location.svg";
+
+const CNCFstackedlogo = loadable.lib(() => import("./images/cncf-stacked-color.svg"));
+// import { ReactComponent as CNCFstackedlogo } from "./images/cncf-stacked-color.svg";
 // import Statement from "../Layer5-statement";
 const Statement = loadable(() => import("../Layer5-statement"));
 // import WhoWeAre from "../WhoWeAre";
 const WhoWeAre = loadable(() => import("../WhoWeAre"));
-import collabMap from "./images/layer5-collaboration-map.svg";
-// import location from "./images/location.svg";
-import { ReactComponent as FiveIcon }  from "../../../assets/images/layer5/5 icon/svg/light/5-light-bg.svg";
-import { ReactComponent as CNCFstackedlogo } from "./images/cncf-stacked-color.svg";
-import { Link } from "gatsby";
+const Button = loadable(() => import("../../../reusecore/Button"));
 
 const About = () => {
   const Community_meetup = "./images/Community_meetup.webp";
-  const Layer5Projects = "./images/layer5-projects.svg";
+  const Layer5Projects = "./images/layer5-projects.webp";
 
   return (
     <AboutSectionWrapper id="about">
@@ -28,7 +32,7 @@ const About = () => {
             <Row Vcenter={true} className="row-img-cont-1">
               <Col xs={12} sm={6}>
                 <div className="head-images">
-                  <FiveIcon alt="About Layer5" />
+                  <img src={FiveIcon} alt="About Layer5" loading="lazy"/>
                 </div>
               </Col>
               <Col xs={12} sm={6}>
@@ -58,7 +62,7 @@ const About = () => {
               </Col>
               <Col xs={12} sm={6}>
                 <div className="head-images">
-                  <CNCFstackedlogo alt="About Layer5 Projects" />
+                  <CNCFstackedlogo>{({ ReactComponent }) => <ReactComponent alt="About Layer5 Projects"/>}</CNCFstackedlogo>
                 </div>
               </Col>
             </Row>
@@ -104,8 +108,7 @@ const About = () => {
               UniWidth="100%"
             >
               <h1>Collaborate</h1>
-              <p className="colab">Join the community and collaborate on our projects all around the world.</p>
-
+              <p className="collab">Join the community and collaborate on our projects all around the world.</p>
               <img id="mapBack" height="100%" width="100%" src={collabMap} alt="Layer5 Collaborators from around the globe" loading="lazy" />
             </SectionTitle>
           </Col>
@@ -121,7 +124,7 @@ const About = () => {
                 <Col xs={12} sm={6}>
                   <div className="footer-section">
                     <a href="https://goo.gl/maps/3oeuqrsMtHPQSTmQ8">
-                      <StaticImage src="./images/location.svg" className="location" alt="Layer5 locations" loading="lazy"/>
+                      <img src={location} width="100%" height="100%" className="location" alt="Layer5 locations" loading="lazy"/>
                     </a>
                     <div className="loc">
                       <p className="country">USA</p>
@@ -140,7 +143,7 @@ const About = () => {
                 <Col xs={12} sm={6}>
                   <div className="footer-section">
                     <a href="https://goo.gl/maps/1nF7vNmVq5fm2GLS6">
-                      <StaticImage src="./images/location.svg" className="location" alt="Layer5 locations" loading="lazy"/>
+                      <img src={location} width="100%" height="100%" className="location" alt="Layer5 locations" loading="lazy"/>
                     </a>
                     <div className="loc">
                       <p className="country">Scotland</p>
