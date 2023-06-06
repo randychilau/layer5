@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-import { graphql, useStaticQuery } from "gatsby";
-import { Link } from "gatsby";
+import { graphql, useStaticQuery, Link } from "gatsby";
+import loadable from "@loadable/component";
 import { FaBars } from "@react-icons/all-files/fa/FaBars";
 import { IoMdClose } from "@react-icons/all-files/io/IoMdClose";
 import Button from "../../../reusecore/Button";
@@ -12,10 +12,10 @@ import { useStyledDarkMode } from "../../../theme/app/useStyledDarkMode";
 import meshmap_dark from "../../..//assets/images/meshmap/icon-only/meshmap-icon.svg";
 import meshery from "../../../assets/images/meshery/icon-only/meshery-logo-light.svg";
 import Data from "./utility/menu-items.js";
-import ScrollspyMenu from "./utility/ScrollspyMenu.js";
 import { ReactComponent as Logo } from "../../../assets/images/app/layer5-colorMode.svg";
-
 import NavigationWrap from "./navigation.style";
+
+const ScrollspyMenu = loadable(() => import("./utility/ScrollspyMenu.js"));
 
 const Navigation = () => {
 
