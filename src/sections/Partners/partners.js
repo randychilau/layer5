@@ -16,7 +16,6 @@ import { ReactComponent as PartnerIstio } from "../../assets/images/partners/ist
 import { ReactComponent as Partner12 } from "../../assets/images/partners/vmware-colorMode.svg";
 import { ReactComponent as Partner14 } from "../../assets/images/partners/metabit-trading-logo-colorMode.svg";
 
-
 export const partners = [
   {
     name: "The University of Texas at Austin",
@@ -131,7 +130,7 @@ export const partners = [
     desc: "Layer5 enhances the Tanzu Service Mesh experience with Meshery as an application and infrastructure management platform that accelerates the adoption of open-source and cloud-native technologies by eliminating complexity with its intuitive, efficient, and flexible solution. Using Layer5's solutions along with Tanzu, engineers can self-service while enterprise IT teams offer Kubernetes as a Service to their application service teams.",
     //link: null,
     type: "technology",
-    imageLink: < Partner12 alt="VMWare" />,
+    imageLink: <Partner12 alt="VMWare" />,
     partnerId: "VMware",
     //imageRoute: "https://www.vmware.com/",
     moreInfo:
