@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-import { graphql, useStaticQuery, Link } from "gatsby";
-import loadable from "@loadable/component";
+import { graphql, useStaticQuery } from "gatsby";
+import { Link } from "gatsby";
 import { FaBars } from "@react-icons/all-files/fa/FaBars";
 import { IoMdClose } from "@react-icons/all-files/io/IoMdClose";
 import Button from "../../../reusecore/Button";
@@ -9,13 +9,13 @@ import { useStyledDarkMode } from "../../../theme/app/useStyledDarkMode";
 
 // import smp_dark_text from "../../../assets/images/service-mesh-performance/stacked/smp-dark-text.svg";
 // import smp_light_text from "../../../assets/images/service-mesh-performance/stacked/smp-light-text.svg";
-import meshmap_dark from "../../../assets/images/meshmap/icon-only/meshmap-icon.svg";
+import meshmap_dark from "../../..//assets/images/meshmap/icon-only/meshmap-icon.svg";
 import meshery from "../../../assets/images/meshery/icon-only/meshery-logo-light.svg";
 import Data from "./utility/menu-items.js";
+import ScrollspyMenu from "./utility/ScrollspyMenu.js";
 import { ReactComponent as Logo } from "../../../assets/images/app/layer5-colorMode.svg";
-import NavigationWrap from "./navigation.style";
 
-const ScrollspyMenu = loadable(() => import("./utility/ScrollspyMenu.js"));
+import NavigationWrap from "./navigation.style";
 
 const Navigation = () => {
 
@@ -186,6 +186,11 @@ const Navigation = () => {
     window.addEventListener("scroll", () =>
       window.pageYOffset > 50 ? setScroll(true) : setScroll(false)
     );
+    return () => {
+      window.removeEventListener("scroll", () =>
+        window.pageYOffset > 50 ? setScroll(true) : setScroll(false)
+      );
+    };
   }, []);
 
   const openDropDown = () => {
@@ -205,8 +210,8 @@ const Navigation = () => {
     <NavigationWrap className={`nav-block ${scroll ? "scrolled" : ""}`} ref={navWrapRef}>
       <Container className="nav-container">
         <div className="navbar-wrap">
-          <Link to="/" className="logo" aria-label="Layer5 Logo - click to go to the homepage">
-            <Logo alt="Layer5 Logo"/>
+          <Link to="/" className="logo">
+            <Logo aria-label="layer5 logo" />
           </Link>
           <nav className="nav">
             {expand ?
@@ -226,8 +231,6 @@ const Navigation = () => {
               <div className="mobile-dropdown">
                 <ul className="mobile-collapsed">
                   {Data.menuItems.map((menu, index) => (
-
-
                     <li
                       key={index}
                       className={
@@ -296,7 +299,6 @@ const Navigation = () => {
         </div>
 
       </Container>
-
     </NavigationWrap>
 
   );
