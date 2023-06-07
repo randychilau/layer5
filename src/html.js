@@ -15,19 +15,26 @@ export default function HTML(props) {
         />
         {/* eslint-disable-next-line react/no-unknown-property*/}
         {props.headComponents}
-        {/* <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
         <link rel="preconnect" href="https://fonts.gstatic.com/" crossOrigin="anonymous" />
         <link rel="preload"
           as="style"
-          href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" />
+          href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap" />
 
         <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap"
           media="print" onLoad="this.media='all'" />
+        <link
+          rel="preload"
+          href="https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofINeaBTMnFcQ.woff2"
+          crossOrigin="anonymous"
+          as="font"
+          type="font/woff2"
+        />
         <noscript>
           <link rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" />
-        </noscript> */}
+            href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap" />
+        </noscript>
       </head>
       <body {...props.bodyAttributes}>
         <script dangerouslySetInnerHTML={{

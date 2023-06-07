@@ -1,3 +1,5 @@
+import "./fonts.css";
+
 document.addEventListener("DOMContentLoaded", () => {
   /** init gtm after 3500 seconds - this could be adjusted */
   setTimeout(initGTM, 3500);
