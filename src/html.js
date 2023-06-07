@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 
 export default function HTML(props) {
+
   return (
     <html lang="en" {...props.htmlAttributes}>
       <head>
@@ -13,15 +14,20 @@ export default function HTML(props) {
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
         {/* eslint-disable-next-line react/no-unknown-property*/}
-        <link rel="preconnect" href="https://fonts.gstatic.com/" crossOrigin="anonymous" />
-        <link
-          rel="preload"
-          as="style"
-          href="https://fonts.googleapis.com/css?family=Open%20Sans:300,400,500,600,700,800&display=swap" />
-        <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Open%20Sans:300,400,500,600,700,800&display=swap"
-          media="print" onLoad="this.media='all'" />
         {props.headComponents}
+        {/* <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossOrigin="anonymous" />
+        <link rel="preload"
+          as="style"
+          href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" />
+
+        <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
+          media="print" onLoad="this.media='all'" />
+        <noscript>
+          <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" />
+        </noscript> */}
       </head>
       <body {...props.bodyAttributes}>
         <script dangerouslySetInnerHTML={{

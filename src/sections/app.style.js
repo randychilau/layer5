@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import "../../fonts.css";
 
 const GlobalStyle = createGlobalStyle`
 
@@ -37,6 +38,7 @@ body,html {
 
 body {
   font-size: 1.125rem;
+  font-family: 'Nunito', 'Nunito Fallback';
   line-height: 28px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -46,7 +48,7 @@ body {
   transition-duration: .8s;
   transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
 
-  font-family: "Qanelas Soft", "Open Sans", sans-serif;
+  // font-family: "Qanelas Soft", "Open Sans", sans-serif;
   overflow-x: hidden !important;
   font-weight: 400 !important;
   margin: 0;
@@ -61,7 +63,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Qanelas Soft", "Open Sans", sans-serif;
+    font-family: 'Nunito', 'Nunito Fallback';
     color: ${(props) => props.theme.tertiaryColor};
     margin: 0;
     line-height: normal;
