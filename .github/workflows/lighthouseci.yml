@@ -17,6 +17,6 @@ jobs:
       - run: npm install && npm install -g @lhci/cli@0.11.x
       - run: CI=false npm run build
       - run: lhci collect --additive --settings.configPath=./github/lhconfig/desktop-lighthouserc.js --url=http://localhost/company/about/index.html?desktop
-      # - run: lhci collect --additive --settings.configPath=./github/lhconfig/mobile-lighthouserc.js --url=http://localhost/company/about/index.html?mobile
+      - run: lhci collect --additive --config=./github/lhconfig/mobile-lighthouserc.js
       - run: lhci assert
       - run: lhci upload
