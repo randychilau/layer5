@@ -4,8 +4,7 @@ module.exports = {
       "settings": {
         "additive": "true",
         "preset": "desktop"
-        }
-      },
+        },
       "staticDistDir": "./public",
       "url": [
         // "http://localhost/404.html",
