@@ -1,7 +1,7 @@
 module.exports = {
     "ci": {
       "assert": {
-        // "preset": "lighthouse:no-pwa",
+        "preset": "lighthouse:recommended",
         "assertions": {
           "csp-xss": "off",
           "aria-hidden-focus": "off",
