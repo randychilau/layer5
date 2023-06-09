@@ -1,9 +1,9 @@
 module.exports = {
   "ci": {
     "collect": {
-      // "settings": {
-      //   "preset": "desktop"
-      // },
+      "settings": {
+        "additive": "true"
+      },
       "staticDistDir": "./public",
       "url": [
         // "http://localhost/404.html",
