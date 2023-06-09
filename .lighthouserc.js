@@ -9,7 +9,7 @@ module.exports = {
                   // "http://localhost/404.html",
                 //  "http://localhost/index.html",
                 //  "http://localhost/404/index.html",
-                 "http://localhost/company/about",
+                 "http://localhost/company/about/index.html",
                 //  "http://localhost/cloud-native-management/meshery.html",
                 //  "http://localhost/cloud-native-management/meshmap.html",
                 //  "http://localhost/learn/learning-paths.html",
