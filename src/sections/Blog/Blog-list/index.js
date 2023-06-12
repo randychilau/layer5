@@ -84,10 +84,10 @@ const BlogList = ({
         img={RssFeedIcon}
         feedlink="/blog/feed.xml"
       />
-      <div className="blog-list-wrapper">
+      <div className="blog-page-wrapper">
         <Container>
           <Row>
-            <Col sm={12} md={8}>
+            <Col xs={12} lg={8}>
               {!pageContext.tag && !pageContext.category ? (
                 <div className="tooltip-search">
                   <BlogViewToolTip
@@ -148,7 +148,7 @@ const BlogList = ({
                 </Col>
               </Row>
             </Col>
-            <Col sm={12} md={4}>
+            <Col xs={12} lg={4}>
               <Sidebar pageContext={pageContext} />
             </Col>
           </Row>
