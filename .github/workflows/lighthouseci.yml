@@ -16,7 +16,9 @@ jobs:
           node-version: 19
       - run: npm install && npm install -g @lhci/cli@0.11.x
       - run: CI=false npm run build
-      - run: lhci collect --additive --config=.mobile-lighthouserc.js
-      - run: lhci collect --additive --config=.desktop-lighthouserc.js
+      - run: lhci collect
       - run: lhci assert
+      - run: lhci upload
+      - run: lhci collect --config=.desktop-lighthouserc.js
+      - run: lhci assert --config=.desktop-lighthouserc.js
       - run: lhci upload

@@ -2,7 +2,6 @@ module.exports = {
   "ci": {
     "collect": {
       "settings": {
-        "additive": "true",
         "preset": "desktop"
         },
       "staticDistDir": "./public",
@@ -24,6 +23,17 @@ module.exports = {
         //  "http://localhost/community/events.html",
         //  "http://localhost/community/newcomers.html",
       ],
-    }
-  }
-};
+    },
+    "assert": {
+          "assertions": {
+            "categories:performance": ["warn", {"minScore": .90}],
+            "categories:accessibility": ["warn", {"minScore": .90}],
+            "categories:best-practices": ["warn", {"minScore": .90}],
+            "categories:seo": ["warn", {"minScore": .90}],
+            }
+          },
+    "upload": {
+          "target": "temporary-public-storage",
+        },
+      }
+    };
