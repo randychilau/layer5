@@ -1,4 +1,8 @@
-/* eslint-env node */
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
+const devIgnoreArray = require("./gatsby-config-filesystem-ignore");
 
 module.exports = {
   siteMetadata: {
@@ -78,6 +82,144 @@ module.exports = {
             },
           ],
         },
+      },
+    },
+    {
+      resolve: "gatsby-plugin-styled-components",
+      options: {
+        minify: false,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-anchor-links",
+      options: {
+        offset: -50,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-mdx",
+      options: {
+        extensions: [".mdx", ".md"],
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "images",
+        path: `${__dirname}/src/assets/images`,
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/collections/blog`,
+        name: "blog",
+        ignore: process.env.GATSBY_DEV_AMENDED === "true"
+          ? devIgnoreArray("integrations")
+          : []
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/collections/news`,
+        name: "news",
+        ignore: process.env.GATSBY_DEV_AMENDED === "true"
+          ? devIgnoreArray("integrations")
+          : []
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/collections/projects`,
+        name: "projects",
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/collections/service-mesh-books`,
+        name: "service-mesh-books",
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/collections/programs`,
+        name: "programs",
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/collections/careers`,
+        name: "careers",
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/collections/members`,
+        name: "members",
+        ignore: process.env.GATSBY_DEV_AMENDED === "true"
+          ? devIgnoreArray("integrations")
+          : []
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/collections/service-mesh-workshops`,
+        name: "service-mesh-workshops",
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/collections/service-mesh-labs`,
+        name: "service-mesh-labs",
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/collections/resources`,
+        name: "resources",
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/collections/events`,
+        name: "events",
+        ignore: process.env.GATSBY_DEV_AMENDED === "true"
+          ? devIgnoreArray("integrations")
+          : []
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/content-learn`,
+        name: "content-learn",
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/collections/integrations`,
+        name: "integrations",
+        ignore: process.env.GATSBY_DEV_AMENDED === "true"
+          ? devIgnoreArray("integrations")
+          : []
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "integration-images",
+        path: `${__dirname}/src/sections/Meshery/Meshery-platforms/supported-icons`,
       },
     },
     {
@@ -390,129 +532,6 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: "gatsby-plugin-styled-components",
-      options: {
-        minify: false,
-      },
-    },
-    {
-      resolve: "gatsby-plugin-anchor-links",
-      options: {
-        offset: -50,
-      },
-    },
-    {
-      resolve: "gatsby-plugin-mdx",
-      options: {
-        extensions: [".mdx", ".md"],
-      },
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "images",
-        path: `${__dirname}/src/assets/images`,
-      },
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/src/collections/blog`,
-        name: "blog",
-      },
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/src/collections/news`,
-        name: "news",
-      },
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/src/collections/projects`,
-        name: "projects",
-      },
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/src/collections/service-mesh-books`,
-        name: "service-mesh-books",
-      },
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/src/collections/programs`,
-        name: "programs",
-      },
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/src/collections/careers`,
-        name: "careers",
-      },
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/src/collections/members`,
-        name: "members",
-      },
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/src/collections/service-mesh-workshops`,
-        name: "service-mesh-workshops",
-      },
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/src/collections/service-mesh-labs`,
-        name: "service-mesh-labs",
-      },
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/src/collections/resources`,
-        name: "resources",
-      },
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/src/collections/events`,
-        name: "events",
-      },
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/content-learn`,
-        name: "content-learn",
-      },
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/src/collections/integrations`,
-        name: "integrations",
-      },
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "integration-images",
-        path: `${__dirname}/src/sections/Meshery/Meshery-platforms/supported-icons`,
-      },
-    },
     "gatsby-plugin-image",
     {
       resolve: "gatsby-plugin-sharp",
@@ -559,3 +578,4 @@ module.exports = {
   ],
 
 };
+
