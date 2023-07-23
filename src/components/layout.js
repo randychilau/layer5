@@ -24,7 +24,7 @@ const Layout = ({ children }) => {
       <Navigation/>
       {children}
       <ScrollToTopBtn />
-      <Footer />
+      <Footer location={children.props.location} />
     </>
   );
 };
